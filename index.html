@@ -293,12 +293,9 @@
 
       // Get today's date and time
       var now = Date.now();
-
-      if (Date.now() < opening){
-        eventspan.innerHTML = 'Opening in';
-        countDownDate = opening;
-        //countdownspan.innerHTML = '##:##:##';
-      } else if (Date.now() >= opening && Date.now() < closing){
+      
+      var countDownDate = closing;
+      if (Date.now() < closing){
         eventspan.innerHTML = 'Open.';
         console.log("open")
         //countdownspan.innerHTML = '##:##:##';
@@ -310,7 +307,7 @@
       }
 
       // Find the distance between now and the count down date
-      var distance = countDownDate - now - (30 * 24 * 60 * 60 * 1000);
+      var distance = countDownDate - now // - (30 * 24 * 60 * 60 * 1000);
 
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
