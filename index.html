@@ -287,14 +287,7 @@
     const countdownspan = document.getElementById('countdown');
     const opening = Math.floor(new Date(2022,8,5,19,0,0).getTime())
     const closing = Math.floor(new Date(2022,8,14,22,0,0).getTime())
-    
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-      // Get today's date and time
-      var now = Date.now();
-      
-      var countDownDate = closing;
+    var countDownDate = closing;
       if (Date.now() < closing){
         eventspan.innerHTML = 'Open.';
         console.log("open")
@@ -305,9 +298,17 @@
         //countdownspan.innerHTML = '00:00:00';
         countDownDate = closing
       }
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = Date.now();
+      
+      
 
       // Find the distance between now and the count down date
-      var distance = countDownDate - now // - (30 * 24 * 60 * 60 * 1000);
+      var distance = countDownDate - now - (30 * 24 * 60 * 60 * 1000);
 
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
